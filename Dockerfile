@@ -58,3 +58,7 @@ RUN echo 'fr_FR.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
 
 # Add custom PHP configuration
 COPY php-custom.ini $PHP_INI_DIR/conf.d/
+
+# Install Composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+COPY --from=composer:1.5.6 /usr/bin/composer /usr/bin/composer

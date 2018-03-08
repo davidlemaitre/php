@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions  
+# Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install \
     mysqli \
@@ -38,11 +38,12 @@ RUN docker-php-ext-install \
     curl \
     json \
     xsl
-    
+
 # Use PECL to install phpredis
 ENV PHPREDIS_VERSION 3.1.5
 RUN pecl install redis-$PHPREDIS_VERSION \
-    && docker-php-ext-enable redis
+    && docker-php-ext-enable redis \
+    && pecl clear-cache
 
 # Set timezone
 ENV TZ=Europe/Paris

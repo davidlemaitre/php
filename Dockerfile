@@ -61,4 +61,4 @@ COPY php-custom.ini $PHP_INI_DIR/conf.d/
 
 # Install Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
-COPY --from=composer:1.5.6 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.6.3 /usr/bin/composer /usr/bin/composer

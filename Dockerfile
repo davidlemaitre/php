@@ -18,6 +18,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libicu-dev \
     libcurl4-gnutls-dev \
     libxslt-dev \
+# Fix SSL certificates errors in Debian 8
+    && apt-get remove -y --purge libgnutls-deb0-28 \
+    && apt-get install -y -t stretch curl git \
+    && git config --global http.sslverify false \
 # Fix outdated PCRE bug in Debian 8
     && apt-get install -y -t stretch libpcre3 libpcre3-dev \
     && apt-get clean \

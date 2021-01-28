@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxml2-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
+    libzip-dev \
+    unzip \
     libmcrypt-dev \
     libpng-dev \
     zlib1g-dev \
@@ -22,7 +24,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install \
     mysqli \
     pdo \

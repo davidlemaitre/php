@@ -58,8 +58,10 @@ RUN echo 'fr_FR.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
 COPY php-custom.ini $PHP_INI_DIR/conf.d/
 
 # Install Composer
+COPY --from=composer:1.10.19 /usr/bin/composer /usr/bin/composer
+
+# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER 1
-COPY --from=composer:1.6.5 /usr/bin/composer /usr/bin/composer
 
 # Fix permissions
 RUN usermod -u 1000 www-data && \

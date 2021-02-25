@@ -52,4 +52,4 @@ RUN sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen && loca
 # Fix permissions
 RUN usermod -u 1000 www-data && \
     groupmod -g 1000 www-data && \
-    chown -R www-data:www-data /var/www/html
+    chown -R www-data:www-data /var/www

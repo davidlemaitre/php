@@ -35,7 +35,7 @@ RUN pecl install redis-5.3.2 \
 
 # Install Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
-COPY --from=composer:2.0.9 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.0.10 /usr/bin/composer /usr/bin/composer
 
 # Add custom PHP configuration
 COPY php-custom.ini $PHP_INI_DIR/conf.d/

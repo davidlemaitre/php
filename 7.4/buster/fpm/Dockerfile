@@ -4,17 +4,22 @@ LABEL maintainer="David Lemaitre"
 # Install dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        default-mysql-client \
-        git \
         imagemagick \
+        locales \
+        # Needed for PHP extensions
         libfreetype6-dev \
         libicu-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
         libxslt-dev \
         libzip-dev \
-        locales \
+        # Needed for Composer
+        git \
         unzip \
+        # Useful tools
+        less \
+        mariadb-client \
+        vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions

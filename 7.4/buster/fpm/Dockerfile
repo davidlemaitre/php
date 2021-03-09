@@ -29,7 +29,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         zip
 
 # Install PECL extensions
-RUN pecl install redis-5.3.2 \
+RUN pecl -q install redis-5.3.2 \
     && docker-php-ext-enable redis \
     && pecl clear-cache
 

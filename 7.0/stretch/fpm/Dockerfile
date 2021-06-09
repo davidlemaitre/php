@@ -21,6 +21,7 @@ RUN apt-get update \
         less \
         mariadb-client \
         vim \
+        wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions

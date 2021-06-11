@@ -1,4 +1,4 @@
-FROM php:7.3.27-fpm-stretch
+FROM php:7.3.28-fpm-stretch
 LABEL maintainer="David Lemaitre"
 
 # Install dependencies

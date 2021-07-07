@@ -26,6 +26,7 @@ RUN apt-get update \
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
+        exif \
         gd \
         intl \
         mysqli \

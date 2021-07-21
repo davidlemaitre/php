@@ -30,6 +30,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         gd \
         intl \
         mysqli \
+        opcache \
         pdo_mysql \
         soap \
         xsl \

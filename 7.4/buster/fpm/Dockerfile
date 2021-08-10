@@ -61,3 +61,6 @@ RUN sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen && loca
 RUN usermod -u 1000 www-data && \
     groupmod -g 1000 www-data && \
     chown -R www-data:www-data /var/www
+
+# Fix thumbnail generation for PDF files
+RUN sed -i "s/rights\=\"none\" pattern\=\"PDF\"/rights\=\"read\|write\" pattern\=\"PDF\"/" /etc/ImageMagick-6/policy.xml

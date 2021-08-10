@@ -4,6 +4,7 @@ LABEL maintainer="David Lemaitre"
 # Install dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        ghostscript \
         imagemagick \
         locales \
         # Needed for PHP extensions

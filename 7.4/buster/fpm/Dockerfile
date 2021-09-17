@@ -1,4 +1,4 @@
-FROM php:7.4.22-fpm-buster
+FROM php:7.4.23-fpm-buster
 LABEL maintainer="David Lemaitre"
 
 # Install dependencies
@@ -44,7 +44,7 @@ RUN pecl -q install redis \
 
 # Install Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
-COPY --from=composer:2.1.3 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.1.8 /usr/bin/composer /usr/bin/composer
 
 # Add custom PHP configuration
 COPY php-custom.ini $PHP_INI_DIR/conf.d/

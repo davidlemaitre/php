@@ -1,7 +1,11 @@
 TAG ?= latest
 IMAGE = davidlemaitre/php
 
-build: build-7.4
+build: build-8.0
+
+build-8.0:
+	docker build -t $(IMAGE):$(TAG) 8.0/bullseye/fpm
+
 build-7.4:
 	docker build -t $(IMAGE):$(TAG) 7.4/buster/fpm
 

@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'master'
-    tags:
-      - '*'
 
 jobs:
   build:
@@ -31,3 +29,5 @@ jobs:
           file: ./8.0/bullseye/fpm/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/php:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/php:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/php:buildcache,mode=max

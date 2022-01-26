@@ -1,4 +1,4 @@
-FROM php:8.0.14-fpm-bullseye
+FROM php:8.0.15-fpm-bullseye
 LABEL maintainer="David Lemaitre"
 
 # Install dependencies

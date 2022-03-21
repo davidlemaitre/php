@@ -1,4 +1,4 @@
-FROM php:7.4.27-fpm-buster
+FROM php:7.4.28-fpm-buster
 LABEL maintainer="David Lemaitre"
 
 # Install dependencies
